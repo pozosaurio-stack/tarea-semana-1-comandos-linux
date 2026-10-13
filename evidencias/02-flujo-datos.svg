@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="860" viewBox="0 0 800 860" role="img" aria-labelledby="title desc">
+  <title id="title">Redirecciones y tuberías: diferencia entre mayor que, doble mayor que y history con tee</title>
+  <desc id="desc">El operador mayor que crea o reemplaza el contenido de un archivo. El doble mayor que añade texto al final. history conectado mediante una tubería con tee muestra el historial en pantalla y también lo guarda en un archivo. Son ejemplos teóricos, no resultados de una ejecución.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#52718b"/></marker>
+  </defs>
+  <rect width="800" height="860" fill="#f5f8fc"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="32" y="43" font-size="25" font-weight="700" fill="#16334b">Cómo se dirige la salida de los comandos</text>
+    <text x="32" y="72" font-size="12.5" font-weight="600" fill="#526b80">DIAGRAMA TEÓRICO · Ejemplos de funcionamiento, no capturas de ejecución</text>
+
+    <rect x="28" y="100" width="744" height="196" rx="16" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="48" y="131" font-size="20" font-weight="700" fill="#16334b">1. &gt;  Crear o reemplazar</text>
+    <text x="48" y="164" font-size="16" font-family="Consolas, monospace" fill="#173e60">echo "Nueva línea" &gt; notas.txt</text>
+    <rect x="48" y="184" width="280" height="74" rx="8" fill="#eef4fb"/>
+    <text x="64" y="206" font-size="11" font-weight="700" fill="#526b80">ANTES · notas.txt</text>
+    <text x="64" y="235" font-size="16" fill="#16334b">Primera línea</text>
+    <path d="M350 220 H450" fill="none" stroke="#52718b" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="472" y="184" width="280" height="74" rx="8" fill="#e4f3ed"/>
+    <text x="488" y="206" font-size="11" font-weight="700" fill="#32654f">DESPUÉS · notas.txt</text>
+    <text x="488" y="235" font-size="16" fill="#225640">Nueva línea</text>
+    <text x="48" y="281" font-size="13" fill="#526b80">Con la configuración habitual de Bash. Si no existe, el archivo se crea.</text>
+
+    <rect x="28" y="312" width="744" height="208" rx="16" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="48" y="343" font-size="20" font-weight="700" fill="#16334b">2. &gt;&gt;  Agregar al final</text>
+    <text x="48" y="376" font-size="16" font-family="Consolas, monospace" fill="#173e60">echo "Nueva línea" &gt;&gt; notas.txt</text>
+    <rect x="48" y="394" width="280" height="86" rx="8" fill="#eef4fb"/>
+    <text x="64" y="416" font-size="11" font-weight="700" fill="#526b80">ANTES · notas.txt</text>
+    <text x="64" y="445" font-size="16" fill="#16334b">Primera línea</text>
+    <path d="M350 436 H450" fill="none" stroke="#52718b" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="472" y="394" width="280" height="86" rx="8" fill="#e4f3ed"/>
+    <text x="488" y="416" font-size="11" font-weight="700" fill="#32654f">DESPUÉS · notas.txt</text>
+    <text x="488" y="442" font-size="16" fill="#225640">Primera línea</text>
+    <text x="488" y="466" font-size="16" fill="#225640">Nueva línea</text>
+    <text x="48" y="504" font-size="13" fill="#526b80">Conserva el contenido anterior y añade el nuevo texto.</text>
+
+    <rect x="28" y="536" width="744" height="302" rx="16" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="48" y="568" font-size="20" font-weight="700" fill="#16334b">3. | y tee  Conectar, mostrar y guardar</text>
+    <text x="48" y="601" font-size="15" font-family="Consolas, monospace" fill="#173e60">history | tee tarea-s1-pedro_pozo.txt</text>
+
+    <rect x="48" y="654" width="166" height="70" rx="10" fill="#eef4fb" stroke="#b9cde0"/>
+    <text x="131" y="683" text-anchor="middle" font-size="20" font-family="Consolas, monospace" font-weight="700" fill="#173e60">history</text>
+    <text x="131" y="706" text-anchor="middle" font-size="13" fill="#526b80">produce el historial</text>
+    <path d="M214 688 H314" fill="none" stroke="#52718b" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="264" y="667" text-anchor="middle" font-size="13" fill="#526b80">tubería |</text>
+
+    <rect x="316" y="654" width="160" height="70" rx="10" fill="#16334b"/>
+    <text x="396" y="683" text-anchor="middle" font-size="20" font-family="Consolas, monospace" font-weight="700" fill="#ffffff">tee</text>
+    <text x="396" y="706" text-anchor="middle" font-size="13" fill="#ffffff">copia su entrada</text>
+
+    <path d="M476 688 H522 V650 H565 M522 688 V754 H565" fill="none" stroke="#52718b" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="568" y="623" width="184" height="56" rx="8" fill="#e4f3ed" stroke="#b9d9ca"/>
+    <text x="660" y="657" text-anchor="middle" font-size="16" font-weight="700" fill="#225640">Pantalla</text>
+
+    <rect x="568" y="714" width="184" height="78" rx="8" fill="#e4f3ed" stroke="#b9d9ca"/>
+    <text x="660" y="737" text-anchor="middle" font-size="14" font-weight="700" fill="#225640">Archivo</text>
+    <text x="660" y="758" text-anchor="middle" font-size="12" font-family="Consolas, monospace" fill="#225640">tarea-s1-</text>
+    <text x="660" y="777" text-anchor="middle" font-size="12" font-family="Consolas, monospace" fill="#225640">pedro_pozo.txt</text>
+    <text x="48" y="818" font-size="13" fill="#526b80">tee sobrescribe el archivo por defecto; tee -a agrega al final.</text>
+  </g>
+</svg>
+

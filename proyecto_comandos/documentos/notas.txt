@@ -1,0 +1,3 @@
+Primera linea: creacion de archivos en Linux.
+Segunda linea: copia y movimiento de archivos.
+Tercera linea: uso de redireccionamiento.

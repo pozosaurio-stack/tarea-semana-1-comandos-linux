@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="850" viewBox="0 0 800 850" role="img" aria-labelledby="title desc">
+  <title id="title">Estructura inicial y recorrido teórico de archivos</title>
+  <desc id="desc">Tres carpetas dentro de proyecto_comandos. El archivo notas.txt se crea en documentos; se copia a scripts como backup_notas.txt; la copia se mueve a imagenes y después se elimina. El archivo original se conserva. Diagrama teórico, no captura de ejecución.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#52718b"/></marker>
+  </defs>
+  <rect width="800" height="850" fill="#f5f8fc"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="32" y="43" font-size="25" font-weight="700" fill="#16334b">Archivos: crear, copiar, mover y eliminar</text>
+    <text x="32" y="72" font-size="12.5" font-weight="600" fill="#526b80">DIAGRAMA TEÓRICO · Secuencia esperada, no evidencia de ejecución</text>
+
+    <rect x="28" y="100" width="744" height="196" rx="16" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="48" y="125" font-size="13" font-weight="700" fill="#526b80">ESTRUCTURA INICIAL</text>
+    <rect x="270" y="138" width="260" height="42" rx="8" fill="#16334b"/>
+    <text x="400" y="165" text-anchor="middle" font-size="17" font-family="Consolas, monospace" fill="#ffffff">proyecto_comandos/</text>
+    <path d="M400 180 V196 M150 208 V196 H650 V208 M400 196 V208" fill="none" stroke="#86a1b8" stroke-width="2"/>
+    <g fill="#eef4fb" stroke="#b9cde0">
+      <rect x="45" y="208" width="210" height="48" rx="8"/>
+      <rect x="295" y="208" width="210" height="48" rx="8"/>
+      <rect x="545" y="208" width="210" height="48" rx="8"/>
+    </g>
+    <g font-family="Consolas, monospace" font-size="17" fill="#173e60" text-anchor="middle">
+      <text x="150" y="238">documentos/</text>
+      <text x="400" y="238">imagenes/</text>
+      <text x="650" y="238">scripts/</text>
+    </g>
+    <text x="48" y="281" font-size="13" fill="#526b80">Las carpetas nacen vacías; notas.txt se crea después en documentos.</text>
+
+    <text x="40" y="327" font-size="14" fill="#526b80">Rutas relativas a proyecto_comandos/</text>
+    <path d="M66 403 V452 M66 514 V564 M66 627 V676" fill="none" stroke="#52718b" stroke-width="2" marker-end="url(#arrow)"/>
+    <g fill="#dbe8f4" stroke="#a5bed5">
+      <circle cx="66" cy="383" r="21"/>
+      <circle cx="66" cy="493" r="21"/>
+      <circle cx="66" cy="606" r="21"/>
+      <circle cx="66" cy="718" r="21"/>
+    </g>
+    <g font-size="17" font-weight="700" fill="#173e60" text-anchor="middle">
+      <text x="66" y="389">1</text><text x="66" y="499">2</text>
+      <text x="66" y="612">3</text><text x="66" y="724">4</text>
+    </g>
+
+    <rect x="110" y="346" width="650" height="80" rx="12" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="130" y="373" font-size="17" font-weight="700" fill="#16334b">Archivo original</text>
+    <text x="130" y="400" font-size="16" font-family="Consolas, monospace" fill="#173e60">documentos/notas.txt</text>
+
+    <rect x="110" y="448" width="650" height="92" rx="12" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="130" y="474" font-size="17" font-weight="700" fill="#16334b">Copiar a scripts con otro nombre</text>
+    <text x="130" y="500" font-size="14" font-family="Consolas, monospace" fill="#173e60">cp documentos/notas.txt scripts/backup_notas.txt</text>
+    <text x="130" y="522" font-size="13" fill="#526b80">Ahora hay dos archivos: el original y su copia.</text>
+
+    <rect x="110" y="560" width="650" height="92" rx="12" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="130" y="586" font-size="17" font-weight="700" fill="#16334b">Mover la copia a imagenes</text>
+    <text x="130" y="612" font-size="14" font-family="Consolas, monospace" fill="#173e60">mv scripts/backup_notas.txt imagenes/</text>
+    <text x="130" y="634" font-size="13" fill="#526b80">La copia cambia de ubicación; ya no está en scripts.</text>
+
+    <rect x="110" y="672" width="650" height="92" rx="12" fill="#ffffff" stroke="#cddbe7"/>
+    <text x="130" y="698" font-size="17" font-weight="700" fill="#16334b">Eliminar la copia</text>
+    <text x="130" y="724" font-size="14" font-family="Consolas, monospace" fill="#173e60">rm imagenes/backup_notas.txt</text>
+    <text x="130" y="746" font-size="13" fill="#526b80">backup_notas.txt deja de existir en imagenes.</text>
+
+    <rect x="28" y="786" width="744" height="42" rx="10" fill="#e4f3ed"/>
+    <text x="48" y="812" font-size="14" font-weight="600" fill="#225640">El original documentos/notas.txt se conserva durante cp, mv y rm.</text>
+  </g>
+</svg>
+
