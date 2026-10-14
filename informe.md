@@ -7,27 +7,25 @@
 
 ## 1. Título
 
-Creación, copia, movimiento, redirección y eliminación de archivos mediante comandos de Linux.
+Creación y manejo de archivos con comandos de Linux.
 
 ## 2. Tiempo de duración
 
-La ejecución de los pasos de creación y manipulación, junto con las primeras comprobaciones, registró **73 segundos (aproximadamente 1,2 minutos)** en la sesión de Git Bash. Este tiempo corresponde a la ejecución de los comandos; no incluye la elaboración del informe, la publicación en GitHub ni la grabación del audio.
+La ejecución final de los comandos y sus comprobaciones tomó **34 segundos**. Este registro no incluye el tiempo dedicado al informe ni a la grabación del audio.
 
 ## 3. Fundamentos
 
-Los comandos de esta práctica se plantean para una terminal interactiva de Git Bash. Una terminal permite escribir instrucciones para trabajar con archivos y directorios. La organización de las carpetas ayuda a separar documentos, imágenes y scripts, mientras que las rutas indican dónde actúa cada instrucción. La shell interpreta esas instrucciones, sus argumentos y los operadores que relacionan su entrada y salida. [Manual de Bash](https://www.gnu.org/software/bash/manual/bash.html).
+La práctica organiza el trabajo en una carpeta llamada `proyecto_comandos`. Dentro se crean `documentos`, `imagenes` y `scripts`. El comando `mkdir` permite crear estas carpetas y `cd proyecto_comandos` sirve para entrar en la principal. Desde allí, la ruta `documentos/notas.txt` indica que el archivo está dentro de `documentos`. Tener clara la ubicación ayuda a copiar o borrar el archivo correcto. [Bash](https://www.gnu.org/software/bash/manual/bash.html) y [GNU: mkdir](https://www.gnu.org/software/coreutils/manual/html_node/mkdir-invocation.html).
 
-El comando `pwd` muestra la ubicación actual y `cd` cambia el directorio de trabajo. Esto permite interpretar correctamente las rutas relativas. `mkdir` crea carpetas; por ejemplo, `mkdir proyecto_comandos` crea el directorio principal. Después de entrar con `cd proyecto_comandos`, la instrucción `mkdir documentos imagenes scripts` crea las tres subcarpetas dentro de él. [Manual de Bash](https://www.gnu.org/software/bash/manual/bash.html) y [GNU: mkdir](https://www.gnu.org/software/coreutils/manual/html_node/mkdir-invocation.html).
+Para escribir las notas se usa `echo`. La primera línea, “Revisar el historial antes de subirlo.”, se guarda con `>`. Las siguientes, “Guardar el informe en Markdown.” y “Adjuntar el enlace del repositorio en el aula.”, se añaden con `>>`. La diferencia es importante: en la configuración habitual, `>` reemplaza el contenido existente, mientras que `>>` conserva lo anterior y escribe al final. Ambos pueden crear el archivo si todavía no existe. [Bash](https://www.gnu.org/software/bash/manual/bash.html).
 
-El comando `echo` escribe texto en la salida estándar. Al agregar `>`, esa salida se dirige a un archivo: se crea si no existe y, normalmente, se reemplaza su contenido si ya existe. En cambio, `>>` añade texto al final. Por eso, para escribir tres líneas en `notas.txt`, se puede utilizar `>` en la primera y `>>` en las siguientes. [Manual de Bash](https://www.gnu.org/software/bash/manual/bash.html).
+Con `cp documentos/notas.txt scripts/backup_notas.txt` se obtiene una copia con otro nombre y se conserva el original. Luego, `mv scripts/backup_notas.txt imagenes/` traslada esa copia. Después del movimiento, el respaldo queda en `imagenes` y ya no está en `scripts`. El archivo `documentos/notas.txt` sigue en su lugar. [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
 
-El comando `cp` copia un archivo y conserva el original. Así, `cp documentos/notas.txt scripts/backup_notas.txt` permite obtener una copia con otro nombre. Por su parte, `mv` cambia la ubicación o el nombre de un archivo; después de moverlo correctamente, deja de estar en su ubicación anterior. [Manual de GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html).
+El comando `cat documentos/notas.txt > documentos/resumen.txt` escribe las tres notas en `resumen.txt`. Después se añade “Grabar un audio de un minuto para la entrega.” mediante `echo` y `>>`. Así, el archivo debe tener cuatro líneas. Aunque se llame “resumen”, `cat` no reduce ni interpreta el texto; lo envía completo al destino indicado. [GNU: cat](https://www.gnu.org/software/coreutils/manual/html_node/cat-invocation.html).
 
-El comando `cat` envía el contenido de uno o varios archivos a la salida estándar. Con `cat documentos/notas.txt > documentos/resumen.txt`, ese contenido se escribe en otro archivo. El nombre “resumen” no significa que el comando resuma el texto: únicamente reproduce su contenido. [GNU: cat](https://www.gnu.org/software/coreutils/manual/html_node/cat-invocation.html).
+La eliminación se hace en dos pasos. Primero, `rm imagenes/backup_notas.txt` borra el respaldo. Luego, `rmdir imagenes` elimina la carpeta, siempre que esté vacía. El orden importa porque `rmdir` no elimina un directorio que todavía contiene archivos. [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html) y [GNU: rmdir](https://www.gnu.org/s/coreutils/manual/html_node/rmdir-invocation.html).
 
-El comando `rm` elimina archivos, como la copia temporal solicitada. `rmdir` elimina directorios vacíos y devuelve un error si contienen elementos. Esta diferencia permite elegir el comando adecuado para cada parte de la práctica. [Manual de GNU Coreutils](https://www.gnu.org/software/coreutils/manual/coreutils.html) y [GNU: rmdir](https://www.gnu.org/s/coreutils/manual/html_node/rmdir-invocation.html).
-
-Finalmente, `history` muestra el historial disponible en la shell. En `history | tee tarea-s1-pedro_pozo.txt`, la tubería `|` conecta esa salida con la entrada de `tee`, que muestra los datos y los guarda. El historial registra comandos, pero no demuestra por sí solo que se ejecutaron correctamente; para comprobarlo hacen falta resultados y evidencias. [GNU: historial](https://www.gnu.org/s/bash/manual/html_node/Bash-History-Facilities.html) y [GNU: tee](https://www.gnu.org/s/coreutils/manual/html_node/tee-invocation.html).
+Finalmente, `history | tee ../tarea-s1-pedro_pozo.txt` permite revisar y guardar los comandos. La tubería `|` pasa el historial a `tee`, que lo muestra en pantalla y lo escribe en el archivo. `../` sitúa ese archivo un nivel por encima de la carpeta actual. El historial sirve como registro de los comandos, pero sus resultados se comprueban aparte. [GNU: historial](https://www.gnu.org/s/bash/manual/html_node/Bash-History-Facilities.html) y [GNU: tee](https://www.gnu.org/s/coreutils/manual/html_node/tee-invocation.html).
 
 ![Estructura inicial y recorrido de los archivos](evidencias/01-estructura.svg)
 
@@ -41,15 +39,15 @@ Finalmente, `history` muestra el historial disponible en la shell. En `history |
 
 - Abrir una terminal y escribir un comando con sus argumentos.
 - Reconocer la diferencia entre un archivo y un directorio.
-- Comprender que una ruta relativa depende del directorio actual.
-- Identificar el uso de las comillas para escribir texto con espacios.
+- Saber en qué carpeta se está trabajando y cómo escribir una ruta.
+- Usar comillas cuando el texto contiene espacios.
 - Utilizar un navegador y una cuenta de GitHub para entregar el repositorio.
 
 ## 5. Objetivos a alcanzar
 
 1. Crear la estructura `proyecto_comandos` con las carpetas `documentos`, `imagenes` y `scripts`.
 2. Crear un archivo de tres líneas, copiarlo, cambiar el nombre de la copia y moverla a otra carpeta.
-3. Aplicar redirecciones para conservar y ampliar el contenido de un archivo, eliminar elementos y exportar el historial mediante una tubería.
+3. Añadir texto sin borrar lo anterior, eliminar el respaldo y guardar el historial con una tubería.
 
 ## 6. Equipo necesario
 
@@ -60,7 +58,7 @@ Finalmente, `history` muestra el historial disponible en la shell. En `history |
 - Navegador, conexión a Internet y cuenta de GitHub.
 - Micrófono o teléfono para grabar el audio personal solicitado.
 
-Git Bash proporciona Bash y herramientas de estilo Unix en Windows. Fue el entorno empleado; no se utilizó Ubuntu WSL en esta ejecución.
+Para esta práctica se utilizó Git Bash, que permite ejecutar estos comandos en Windows.
 
 ## 7. Material de apoyo
 
@@ -72,9 +70,9 @@ Git Bash proporciona Bash y herramientas de estilo Unix en Windows. Fue el entor
 
 ## 8. Procedimiento
 
-Se empleó una carpeta nueva de trabajo y una sesión interactiva de Git Bash con historial independiente. Los comandos siguientes corresponden a la ejecución registrada. Se mantuvo el nombre **`imagenes` sin tilde** en todas las rutas, tal como aparece en la creación de la estructura del enunciado.
+La práctica se hizo en una carpeta nueva. Se usó `imagenes` sin tilde en todas las instrucciones para mantener el mismo nombre de carpeta.
 
-Las figuras 1 y 2 son diagramas explicativos. Las figuras 3 a 6 muestran una transcripción visual del registro real de ejecución, presentada en un visor. Todas las imágenes tienen 800 píxeles de ancho.
+Las dos primeras figuras explican las operaciones. Las figuras 3 a 6 muestran transcripciones visuales de los comandos y sus resultados. Todas tienen 800 píxeles de ancho.
 
 ### Paso 1. Crear la estructura de carpetas
 
@@ -85,18 +83,18 @@ mkdir documentos imagenes scripts
 ls -R
 ```
 
-Se comprobó la presencia de las tres subcarpetas dentro de `proyecto_comandos`. Desde este punto, los comandos de la práctica se ejecutaron dentro de esa carpeta.
+Con `ls -R` se comprobó que las tres subcarpetas estaban creadas. Los pasos siguientes se hicieron desde `proyecto_comandos`.
 
 ### Paso 2. Crear notas.txt y escribir tres líneas
 
 ```bash
-echo "Primera linea: creacion de archivos en Linux." > documentos/notas.txt
-echo "Segunda linea: copia y movimiento de archivos." >> documentos/notas.txt
-echo "Tercera linea: uso de redireccionamiento." >> documentos/notas.txt
+echo "Revisar el historial antes de subirlo." > documentos/notas.txt
+echo "Guardar el informe en Markdown." >> documentos/notas.txt
+echo "Adjuntar el enlace del repositorio en el aula." >> documentos/notas.txt
 cat documentos/notas.txt
 ```
 
-El primer comando creó el archivo. Los dos siguientes añadieron líneas sin reemplazar las anteriores. Se usó texto sin tildes dentro de los archivos para simplificar su lectura en la terminal.
+Las notas contienen tres recordatorios para la entrega. La primera línea creó el archivo con `>`; las otras dos se añadieron con `>>`. Luego se revisó el contenido con `cat`.
 
 ![Creación de carpetas y notas](evidencias/03-creacion.png)
 
@@ -111,7 +109,7 @@ mv scripts/backup_notas.txt imagenes/
 ls scripts imagenes
 ```
 
-`cp` creó una copia con el nombre `backup_notas.txt`, manteniendo el original en `documentos`. Después, `mv` trasladó la copia a `imagenes`. La comprobación mostró el respaldo en `imagenes` y la carpeta `scripts` vacía.
+El original quedó en `documentos` y su copia se guardó como `backup_notas.txt`. Después de moverla, `ls` mostró el respaldo dentro de `imagenes`; `scripts` quedó vacía.
 
 ![Copia y movimiento](evidencias/04-copia-movimiento.png)
 
@@ -122,12 +120,12 @@ ls scripts imagenes
 ```bash
 touch documentos/resumen.txt
 cat documentos/notas.txt > documentos/resumen.txt
-echo "Cuarta linea: contenido agregado sin sobrescribir." >> documentos/resumen.txt
+echo "Grabar un audio de un minuto para la entrega." >> documentos/resumen.txt
 cat documentos/resumen.txt
 wc -l documentos/notas.txt documentos/resumen.txt
 ```
 
-`touch` creó el archivo vacío y la redirección copió en él el contenido de `notas.txt`. La última línea se añadió con `>>`. Se verificaron **tres líneas en notas.txt y cuatro en resumen.txt**. El archivo llamado `resumen.txt` contiene una copia ampliada; no se realizó un resumen automático del texto.
+Se creó `resumen.txt` y se copiaron las tres notas mediante `cat` y `>`. Después se añadió el recordatorio de grabar el audio. La comprobación con `wc -l` dio **3 líneas en notas.txt y 4 en resumen.txt**.
 
 ![Redirección y número de líneas](evidencias/05-redireccion.png)
 
@@ -142,7 +140,7 @@ rmdir imagenes
 ls -R
 ```
 
-Primero se eliminó el archivo de respaldo. `ls -A imagenes` no mostró elementos, lo que permitió comprobar que la carpeta estaba vacía. Después, `rmdir` la eliminó. El archivo original y `resumen.txt` permanecieron en `documentos`.
+Después de borrar el respaldo, `ls -A imagenes` no mostró ningún archivo. Con la carpeta vacía se pudo usar `rmdir`. Las notas y el resumen se conservaron en `documentos`.
 
 ![Estado final de la práctica](evidencias/06-resultado-final.png)
 
@@ -150,23 +148,22 @@ Primero se eliminó el archivo de respaldo. `ls -A imagenes` no mostró elemento
 
 ### Paso 6. Guardar el historial utilizando una tubería
 
-Desde `proyecto_comandos`, la instrucción de entrega es:
+El historial se guardó desde `proyecto_comandos` con este comando:
 
 ```bash
 history | tee ../tarea-s1-pedro_pozo.txt
 ```
 
-`history` produce la lista de comandos de la sesión y la tubería `|` la entrega a `tee`. Este último muestra la lista en la terminal y la guarda en el archivo situado un nivel por encima del proyecto. El nombre del archivo debe contener el nombre y apellido del estudiante.
+La tubería pasa la salida de `history` a `tee`. Así, la lista aparece en la terminal y queda guardada en `tarea-s1-pedro_pozo.txt`. El archivo se coloca fuera de `proyecto_comandos`, junto al informe.
 
-El historial completo se exportó al archivo `tarea-s1-pedro_pozo.txt`. Incluye las comprobaciones y las exportaciones realizadas durante la práctica.
 
 ### Paso 7. Preparar el repositorio y el audio
 
-El repositorio incluye el informe Markdown, el historial, las evidencias y los archivos resultantes. El audio se entrega aparte en el aula virtual, conforme al enunciado: debe ser un **MP3 de 60 segundos** que explique con palabras del estudiante lo aprendido.
+El informe, el historial y los archivos quedaron en el [repositorio de la práctica](https://github.com/pozosaurio-stack/tarea-semana-1-comandos-linux). El audio de **60 segundos en MP3** se adjunta por separado en el aula virtual.
 
 ## 9. Resultados esperados
 
-Los resultados esperados y las comprobaciones de la ejecución fueron los siguientes:
+Estas fueron las comprobaciones al terminar:
 
 | Comprobación | Resultado observado |
 |---|---|
@@ -189,9 +186,9 @@ proyecto_comandos/
 └── scripts/
 ```
 
-**Nota sobre GitHub:** Git no versiona directorios vacíos. Después de terminar la práctica se añadió un archivo vacío `.gitkeep` en `scripts` únicamente para conservar esa carpeta en el repositorio. Este marcador no es parte de las operaciones de copia y movimiento.
+Git no guarda carpetas vacías. Por eso, después de la práctica se añadió `.gitkeep` en `scripts` para que aparezca en el repositorio.
 
-La ejecución permite distinguir tres efectos: copiar conserva el archivo original, mover cambia la ubicación de un archivo y redireccionar controla dónde se escribe la salida de un comando. También se comprobó que `>>` agrega contenido y que `rmdir` se utiliza para directorios vacíos.
+La comprobación más clara está en los dos archivos finales: las notas conservan los tres recordatorios y el resumen tiene uno más. La copia temporal ya no está. Esto permite revisar que cada comando produjo el cambio esperado sin perder el archivo original.
 
 ## 10. Bibliografía
 

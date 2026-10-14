@@ -1,4 +1,4 @@
-Primera linea: creacion de archivos en Linux.
-Segunda linea: copia y movimiento de archivos.
-Tercera linea: uso de redireccionamiento.
-Cuarta linea: contenido agregado sin sobrescribir.
+Revisar el historial antes de subirlo.
+Guardar el informe en Markdown.
+Adjuntar el enlace del repositorio en el aula.
+Grabar un audio de un minuto para la entrega.

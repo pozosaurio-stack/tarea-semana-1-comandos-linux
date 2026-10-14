@@ -2,9 +2,9 @@
     2  cd proyecto_comandos
     3  mkdir documentos imagenes scripts
     4  ls -R
-    5  echo "Primera linea: creacion de archivos en Linux." > documentos/notas.txt
-    6  echo "Segunda linea: copia y movimiento de archivos." >> documentos/notas.txt
-    7  echo "Tercera linea: uso de redireccionamiento." >> documentos/notas.txt
+    5  echo "Revisar el historial antes de subirlo." > documentos/notas.txt
+    6  echo "Guardar el informe en Markdown." >> documentos/notas.txt
+    7  echo "Adjuntar el enlace del repositorio en el aula." >> documentos/notas.txt
     8  cat documentos/notas.txt
     9  cp documentos/notas.txt scripts/backup_notas.txt
    10  ls scripts
@@ -12,14 +12,12 @@
    12  ls scripts imagenes
    13  touch documentos/resumen.txt
    14  cat documentos/notas.txt > documentos/resumen.txt
-   15  echo "Cuarta linea: contenido agregado sin sobrescribir." >> documentos/resumen.txt
+   15  echo "Grabar un audio de un minuto para la entrega." >> documentos/resumen.txt
    16  cat documentos/resumen.txt
    17  wc -l documentos/notas.txt documentos/resumen.txt
    18  rm imagenes/backup_notas.txt
    19  ls -A imagenes
    20  rmdir imagenes
    21  ls -R
-   22  printf "Tiempo transcurrido en la sesion: %s segundos\n" "$SECONDS"
-   23  history | tee ../../../work/historial-practica.txt
-   24  history | tee ../tarea-s1-nombre_apellido.txt
-   25  history | tee ../tarea-s1-pedro_pozo.txt
+   22  printf "Duracion de la practica: %s segundos\n" "$SECONDS"
+   23  history | tee ../tarea-s1-pedro_pozo.txt
