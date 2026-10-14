@@ -11,7 +11,7 @@ Creación y manejo de archivos con comandos de Linux.
 
 ## 2. Tiempo de duración
 
-La ejecución final de los comandos y sus comprobaciones tomó **34 segundos**. Este registro no incluye el tiempo dedicado al informe ni a la grabación del audio.
+La ejecución final de los comandos y sus comprobaciones tomó **aproximadamente 0,57 minutos (34 segundos)**. Este registro no incluye el tiempo dedicado al informe ni a la grabación del audio.
 
 ## 3. Fundamentos
 
@@ -159,7 +159,7 @@ La tubería pasa la salida de `history` a `tee`. Así, la lista aparece en la te
 
 ### Paso 7. Preparar el repositorio y el audio
 
-El informe, el historial y los archivos quedaron en el [repositorio de la práctica](https://github.com/pozosaurio-stack/tarea-semana-1-comandos-linux). El audio de **60 segundos en MP3** se adjunta por separado en el aula virtual.
+El informe, el historial y los archivos quedaron en el [repositorio de la práctica](https://github.com/pozosaurio-stack/tarea-semana-1-comandos-linux). El audio personal de **60 segundos en MP3** todavía debe grabarse y adjuntarse por separado en el aula virtual.
 
 ## 9. Resultados esperados
 
