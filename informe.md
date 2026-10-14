@@ -3,7 +3,7 @@
 **Estudiante:** Pedro Pozo  
 **Semana:** 1  
 **Fecha de ejecución:** 13 de octubre de 2026  
-**Entorno utilizado:** Git Bash en Windows (Bash 5.2.37).
+**Entorno utilizado:** Ubuntu 24.04.4 LTS en WSL2 (Bash 5.2.21).
 
 ## 1. Título
 
@@ -11,7 +11,7 @@ Creación y manejo de archivos con comandos de Linux.
 
 ## 2. Tiempo de duración
 
-La ejecución final de los comandos y sus comprobaciones tomó **aproximadamente 0,57 minutos (34 segundos)**. Este registro no incluye el tiempo dedicado al informe ni a la grabación del audio.
+No se registró una duración total de la práctica.
 
 ## 3. Fundamentos
 
@@ -51,14 +51,14 @@ Finalmente, `history | tee ../tarea-s1-pedro_pozo.txt` permite revisar y guardar
 
 ## 6. Equipo necesario
 
-- Computador con Windows.
-- Git Bash instalado. La versión utilizada de Bash fue **5.2.37**.
-- Git instalado, versión **2.53.0.windows.2**, para publicar el repositorio.
+- Computador con Windows y WSL2 habilitado.
+- Ubuntu **24.04.4 LTS** en WSL2, con kernel **6.6.87.2-microsoft-standard-WSL2** y Bash **5.2.21**.
+- Git instalado para publicar el repositorio.
 - Editor de texto compatible con Markdown.
 - Navegador, conexión a Internet y cuenta de GitHub.
 - Micrófono o teléfono para grabar el audio personal solicitado.
 
-Para esta práctica se utilizó Git Bash, que permite ejecutar estos comandos en Windows.
+La práctica se ejecutó en Ubuntu mediante WSL2. Se utilizó la terminal xterm para introducir los comandos y capturar sus resultados.
 
 ## 7. Material de apoyo
 
@@ -70,9 +70,13 @@ Para esta práctica se utilizó Git Bash, que permite ejecutar estos comandos en
 
 ## 8. Procedimiento
 
-La práctica se hizo en una carpeta nueva. Se usó `imagenes` sin tilde en todas las instrucciones para mantener el mismo nombre de carpeta.
+La práctica se hizo en una carpeta nueva dentro de Ubuntu en WSL2. Se usó `imagenes` sin tilde en todas las instrucciones para mantener el mismo nombre de carpeta.
 
-Las dos primeras figuras explican las operaciones. Las figuras 3 a 6 muestran transcripciones visuales de los comandos y sus resultados. Todas tienen 800 píxeles de ancho.
+Las dos primeras figuras explican las operaciones. Las figuras 3 a 8 son capturas reales de la terminal xterm de Ubuntu en WSL2. Las imágenes se presentan con un ancho máximo de 800 píxeles.
+
+<img src="evidencias/00-entorno-wsl.png" alt="Identificación del entorno Ubuntu en WSL2" width="800">
+
+*Figura 3. Identificación de Ubuntu 24.04.4 LTS, el kernel de WSL2 y la versión de Bash en la terminal.*
 
 ### Paso 1. Crear la estructura de carpetas
 
@@ -96,9 +100,9 @@ cat documentos/notas.txt
 
 Las notas contienen tres recordatorios para la entrega. La primera línea creó el archivo con `>`; las otras dos se añadieron con `>>`. Luego se revisó el contenido con `cat`.
 
-![Creación de carpetas y notas](evidencias/03-creacion.png)
+<img src="evidencias/03-creacion.png" alt="Creación de carpetas y notas en Ubuntu" width="800">
 
-*Figura 3. Registro de la creación de las carpetas y de las tres líneas de notas.txt.*
+*Figura 4. Captura de la creación de las carpetas y de las tres líneas de notas.txt en Ubuntu.*
 
 ### Paso 3. Copiar, renombrar y mover el archivo
 
@@ -111,9 +115,9 @@ ls scripts imagenes
 
 El original quedó en `documentos` y su copia se guardó como `backup_notas.txt`. Después de moverla, `ls` mostró el respaldo dentro de `imagenes`; `scripts` quedó vacía.
 
-![Copia y movimiento](evidencias/04-copia-movimiento.png)
+<img src="evidencias/04-copia-movimiento.png" alt="Copia y movimiento del respaldo en Ubuntu" width="800">
 
-*Figura 4. Registro de la copia con otro nombre y su traslado a imagenes.*
+*Figura 5. Captura de la copia con otro nombre y su traslado a imagenes.*
 
 ### Paso 4. Redireccionar y añadir contenido
 
@@ -127,9 +131,9 @@ wc -l documentos/notas.txt documentos/resumen.txt
 
 Se creó `resumen.txt` y se copiaron las tres notas mediante `cat` y `>`. Después se añadió el recordatorio de grabar el audio. La comprobación con `wc -l` dio **3 líneas en notas.txt y 4 en resumen.txt**.
 
-![Redirección y número de líneas](evidencias/05-redireccion.png)
+<img src="evidencias/05-redireccion.png" alt="Redirección y comprobación de las líneas en Ubuntu" width="800">
 
-*Figura 5. Contenido de resumen.txt y comprobación del número de líneas.*
+*Figura 6. Captura del contenido de resumen.txt y de la comprobación del número de líneas.*
 
 ### Paso 5. Eliminar el respaldo y la carpeta vacía
 
@@ -142,9 +146,9 @@ ls -R
 
 Después de borrar el respaldo, `ls -A imagenes` no mostró ningún archivo. Con la carpeta vacía se pudo usar `rmdir`. Las notas y el resumen se conservaron en `documentos`.
 
-![Estado final de la práctica](evidencias/06-resultado-final.png)
+<img src="evidencias/06-resultado-final.png" alt="Eliminación del respaldo y estructura final en Ubuntu" width="800">
 
-*Figura 6. Eliminación del respaldo y estructura final de la práctica.*
+*Figura 7. Captura de la eliminación del respaldo y de la estructura final de la práctica.*
 
 ### Paso 6. Guardar el historial utilizando una tubería
 
@@ -155,6 +159,10 @@ history | tee ../tarea-s1-pedro_pozo.txt
 ```
 
 La tubería pasa la salida de `history` a `tee`. Así, la lista aparece en la terminal y queda guardada en `tarea-s1-pedro_pozo.txt`. El archivo se coloca fuera de `proyecto_comandos`, junto al informe.
+
+<img src="evidencias/07-historial.png" alt="Exportación del historial mediante una tubería en Ubuntu" width="800">
+
+*Figura 8. Captura de la exportación del historial de la sesión de Ubuntu mediante history y tee.*
 
 
 ### Paso 7. Preparar el repositorio y el audio
