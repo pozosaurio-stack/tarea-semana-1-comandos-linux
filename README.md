@@ -1,7 +1,7 @@
 # Prácticas de Linux y Docker — Pedro Pozo
 
 - [Práctica de comandos Linux](informe.md).
-- [Práctica 1: crear y personalizar dos servidores Nginx con Docker](practica-1-nginx/informe.md).
-- [Materiales de la práctica de Nginx](practica-1-nginx/README.md).
+- [Práctica de Nginx y Docker: repositorio independiente](https://github.com/pozosaurio-stack/practica-1-nginx-docker).
+- [Informe de los dos servidores Nginx](https://github.com/pozosaurio-stack/practica-1-nginx-docker/blob/main/informe.md).
 
-La práctica de Nginx incluye dos páginas HTML, diagramas, capturas reales de los servidores y un registro de ejecución. La reflexión oral de 60 segundos se graba con la voz del estudiante y se adjunta por separado a la entrega.
+Este repositorio conserva la práctica de comandos Linux. Los materiales de Nginx y Docker se encuentran en su repositorio propio.
